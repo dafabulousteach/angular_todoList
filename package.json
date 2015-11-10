@@ -1,0 +1,27 @@
+{
+  "name": "angular_todolist",
+  "version": "1.0.0",
+  "description": "angular practice",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm run test-server",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dafabulousteach/angular_todoList.git"
+  },
+  "author": "kim merino",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dafabulousteach/angular_todoList/issues"
+  },
+  "homepage": "https://github.com/dafabulousteach/angular_todoList#readme",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.2.5",
+    "morgan": "^1.6.1"
+  }
+}
