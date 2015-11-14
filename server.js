@@ -39,7 +39,7 @@ var Todo = mongoose.model('Todo', {
 // ================================== //
 //              ROUTES                //
 // ================================== //
-app.get('/api/todos', function(req, res){
+app.get('/api/todos', function (req, res){
   Todo.find(function(err, todos){
     if(err){
       res.send(err);
@@ -48,7 +48,7 @@ app.get('/api/todos', function(req, res){
   });
 });
 
-app.post('/api/todos', function(req, res){
+app.post('/api/todos', function (req, res){
   console.log(req.params.todo_id);
   Todo.create({
     text:req.body.text,
@@ -66,7 +66,7 @@ app.post('/api/todos', function(req, res){
   });
 });
 
-app.delete('/api/todos', function(req, res){
+app.delete('/api/todos:todo_id', function (req, res){
   Todo.remove({
     _id : req.params.todo_id
   }, function(err, todo){
@@ -85,6 +85,9 @@ app.delete('/api/todos', function(req, res){
 // ================================== //
 //       LOAD SINGLE VIEW FILE        //
 // ================================== //
+app.get('*', function (req, res){
+  res.sendfile('./public/index.html');
+});
 
 app.listen(8080);
 console.log('App listening on port 8080');
