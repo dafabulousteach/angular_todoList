@@ -1,5 +1,4 @@
 var todoList = angular.module('todoList', []);
-
 function mainController($scope, $http){
   $scope.formData = {};
 
@@ -7,7 +6,6 @@ function mainController($scope, $http){
   $http.get('/api/todos')
     .success(function(data){
       $scope.todos = data;
-      console.log(data);
     })
     .error(function(data){
       console.log('Error: ' + data);
@@ -16,10 +14,10 @@ function mainController($scope, $http){
   // when submitting a todo, send the text to the node API
   $scope.createTodo = function(){
     $http.post('/api/todos', $scope.formData)
-      .success(function(data){
+    .success(function(data){
+        console.log('formData is: ', $scope.formData);
         $scope.formData = {}; // clears the form
         $scope.todos = data;
-        console.log(data);
       })
       .error(function(dadta){
         console.log('Error: ' + data);
@@ -31,11 +29,12 @@ function mainController($scope, $http){
     $http.delete('/api/todos' + id)
       .success(function(data){
         $scope.todos = data;
-        console.log(data);
       })
       .error(function(data){
         console.log('Error: ' + data);
       });
   };
+
+  
 
 };
